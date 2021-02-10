@@ -28,7 +28,7 @@ public class housepainting {
 		width = in.nextInt();
 		System.out.println("Enter length of house:  "); 
 		length = in.nextInt(); 
-		System.out.println("Enter height as house: "); 
+		System.out.println("Enter height of house: "); 
 		height = in.nextInt();
 		System.out.println( "Enter window length: ");
 		winLength = in.nextInt();
@@ -53,7 +53,8 @@ public class housepainting {
 			double SQFTP= SQFTN + (0.5 * (length*(height-width))); 
 			double TotalSF = ((SQFTP * 2) + (SQFTN * 2 ) - (SFWD));
 			double total = (TotalSF * SqFtCost);
-			System.out.println("your total is: " + total);
+			System.out.println("Your total paintable surface area is: " +TotalSF);
+			System.out.println("your total estimate is: " + total);
 		
 
 		
