@@ -10,44 +10,34 @@ public class BankThreshold {
 		Scanner in = new Scanner (System.in);
 		
 		double startBal;
-		 System.out.println("Please enter amount to start the account: "); 
+		 System.out.println("Enter opening balance: "); 
 		  startBal = in.nextDouble();
 		  
 		  double intPct;
-		  System.out.println("Please enter an interest rate: ");
+		  System.out.println("Enter interest rate: ");
 		  intPct = in.nextDouble();
 		  
 		  BankAccount calcInt = new BankAccount(startBal, intPct);
 		  System.out.println( "Account created with a balance of " + startBal + " and interest rate: " + intPct);
 		  
- 	
+	calcInt.threshold();
 	
+
 		System.out.println("Enter a threshold: ");
-		
-		  	while (in.hasNextDouble())
-		  	{int months = 0;
-		  			double numb = in.nextDouble();
-		  		System.out.println("Threshold entered: " + numb);
-		  		while (BankAccount.getBalance() < numb)
-		  		{
-		  			BankAccount.calcInterest();
-		  				months++;	
-		  		}
-		  	
-		  	System.out.println("The number of months until you reach your threshold: " + months);	
-		  	
+		String userInput = in.next();
+		  if (userInput.equals("end"))
+		  {
+			System.out.print("program ended, Thank you"); 
+		  }    
+		  
+		  else 
+		  {
+			  calcInt.threshold();
+ 
 		  }
-
-		
-		
-		
-	
-	}
-	
-	
-	
+		  
+			
 }
-
-	
+}	
 
 

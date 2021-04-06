@@ -15,7 +15,7 @@ public class BankTster {
 		myBank.withdraw();
 	
 		myBank.withdraw();
-		System.out.println(myBank.getWithdrawAmount());
+		System.out.println();
 		myBank.askcalcInterest();
 		System.out.println(myBank.getInterestRate());
 		myBank.finalbalance();

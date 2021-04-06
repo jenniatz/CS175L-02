@@ -19,7 +19,7 @@ public class BankAccount {
 	public void deposit (double depositAmount)
 	{
 		balance = balance + depositAmount;
-		//System.out.println( " Deposited: " + depositAmount);	
+		
 		
 		
 	}
@@ -61,7 +61,63 @@ public static double getBalance()
 	return balance;
 }
 	
+public void threshold()
+{
+	Scanner in = new Scanner (System.in);
+	System.out.println("Enter a threshold: ");
+	while (in.hasNextDouble())
+  	{int months = 0;
+  			double numb = in.nextDouble();
+  		System.out.println("Threshold entered: " + numb);
+  		while (BankAccount.getBalance() < numb)
+  		{
+  			BankAccount.calcInterest();
+  				months++;	
+  		}
+  	
+  	System.out.println("The number of months until you reach your threshold: " + months);	
+	
+  	}
+	
+
+  
+}
+  
+ 
+public void userInput()
+{
+	Scanner in = new Scanner (System.in);
+	System.out.println("Enter a threshold: ");
+	String userInput = in.next();
+	  if (userInput.equals("end"))
+	  {
+		System.out.print("program ended, Thank you"); 
+		    
+	  }
+	  else
+	  {
+		  System.out.println("Enter a threshold: ");
+		  while (in.hasNextDouble())
+		  	{int months = 0;
+		  			double numb = in.nextDouble();
+		  		System.out.println("Threshold entered: " + numb);
+		  		while (BankAccount.getBalance() < numb)
+		  		{
+		  			BankAccount.calcInterest();
+		  				months++;	
+		  		}
+		  	
+		  	System.out.println("The number of months until you reach your threshold: " + months);	
+			
+		  	}
+		  
+	  }
+	  
+	
 		
+		  	
+		  				  		
+  	}
 	
 	
 
@@ -69,9 +125,6 @@ public static double getBalance()
 
 
 
-	
-	
-	
 		
 }
 

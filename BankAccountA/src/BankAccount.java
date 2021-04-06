@@ -1,18 +1,17 @@
-package BankMain;
 import java.util.Scanner;
 
 public class BankAccount {
 	/**
+	   A bank account has a balance and a mechanism for
 	   applying interest or fees at the end of the month.
 	*/
 	
 	
 	   private double balance;
 	   private double interestPct;
+	   private double interestRt;
 	   private double depositAmount;
 	   private double withdrawAmount;
-	   private double newBal;
-	   public String yOn;
 
 	   /**
 	      Constructs a bank account with zero balance.
@@ -23,16 +22,15 @@ public class BankAccount {
 	      interestPct = 0;
 	      depositAmount = 0;
 	      withdrawAmount = 0;
-	      newBal = 0;
-	      
+	      interestRt = 0;
 	      
 	   }
 	   
 	   
-	   public void startbalance() {
+	   public void startbalance(double balance) {
 		   Scanner in = new Scanner (System.in);
 		 System.out.println("Please enter amount to start the account: ");
-		 this.balance = in.nextDouble();
+		 balance = in.nextDouble();
 	   }
 	   
 	   /**
@@ -40,127 +38,124 @@ public class BankAccount {
 	      @param amount the amount of the deposit
 	   */
 	   
-	  public void interestrate () {
+	  public void interestRate (double interestPct) {
 		 
 		  Scanner in = new Scanner (System.in);
 		  System.out.println("please enter interest rate for this account: ");
 		  interestPct = in.nextDouble();
 		    
-		  
 	  }
-	  
-	    
+	   
+	   
 	   	   
-	 public void deposit()
+	 public void deposit(double depositAmount)
 	   {
 		   Scanner in = new Scanner (System.in);
 		   
 		   System.out.println("Please enter deposit amount in the account: ");
 		   depositAmount =in.nextDouble();
 		   
-		   balance = balance + depositAmount;
+	     balance = balance + depositAmount;
 	   }
-	 
 	
+	 
 	   /**
 	      Makes a withdrawal from this account, or charges a penalty if
 	      sufficient funds are not available.
 	      @param amount the amount of the withdrawal
 	   */
-	   public void withdraw()
+	   public void withdraw(double withdrawAmount)
 	   {
 		   Scanner in = new Scanner (System.in);
 		   
 		   System.out.println("Please enter amount to withdraw from the account: ");
 		   withdrawAmount = in.nextDouble(); 
-		   newBal = balance - withdrawAmount;
 		   
 	     
 	      
-	    if (withdrawAmount > 2000.00) {
+	    if (withdrawAmount > 2000) {
 			
 			System.out.println("Insufficient funds to support withdrawal");
 	    	
 	}
 		
+		else {
+			balance = balance - withdrawAmount;
+		}
 	   }
 	   
-	   
+	   	   
 	     
 	   /**
 	      Gets the current balance of this bank account.
 	      @return the current balance
 	   */
-	   public void askcalcInterest ()
+	   public void askCalcInterest (double interestRt)
 	   {
 		   Scanner in = new Scanner (System.in);
 		   System.out.println("if you want me to generate interest, enter 'yes': ");
-		  yOn = in.nextLine();
 		  
+			   interestRt = interestPct * 5;
+		   	   
+		     
 	   }
-	 
-	   
-	   
 	   
 	   public void finalbalance()
 	   {
-		  
-		   newBal = newBal * 1.05 ;
+		   balance = interestRt * balance;
 		   
 		      
 	   }
 	   
 	   
 	   
-	   public double getIntialBalAndInt()
+	   
+	   
+	   
+	   public double getInitialBalance()
 	   {
-		   System.out.println("created new account with " + this.balance);
-		   System.out.print("and interest rate ");
-		   return interestPct;  
-		   
+		 System.out.println("Created new account with "); 
+				 return balance;
+		 
 	   }
 	  
-	   
 	  
+	  public double getInitialInterestRate()
+	  {
+			System.out.print("and interest rate: "); 
+			return interestPct;
+	   	  	   
+	   }
 	   
-	   public double getinitalDeposit()
+	   public double getInterestRate()
+	   {
+		   System.out.println("interest: ");
+		   return interestRt;
+		    
+	   }
+	   
+	   
+	   public double getInitialDeposit()
 		 {
 			 System.out.println("Deposited: ");
 			 return depositAmount; 
 			 
 		 }
-   
 	   
-	   
-	   public void getWithdrawAmount()
+	   public double getWithdrawAmount()
 	    {
 	    	System.out.println("withdrew: ");
+	    	return withdrawAmount;
 	    	
 	    }
-		 
-	   
-	   
-	   
-	   public double getInterestRate()
-	   {
-		   interestPct = interestPct * 500;
-		   System.out.println("interest: ");
-		   return interestPct;
-		    
-	   }
-	   
+
 	   
 	   public double getBalance()
 	   {
 	  
 		 System.out.println("The account balance is: ");  
-		   return newBal;
+		   return balance;
 	   }
-	   
-	   
-	   
-	  
-	   
 	    
 	   
 	public static void main(String[] args) {
